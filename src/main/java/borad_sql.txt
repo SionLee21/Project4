@@ -1,0 +1,22 @@
+table생성쿼리
+
+create table books (
+        id int(11) AUTO_INCREMENT,
+        title varchar(100),
+        author varchar(255),
+        publisher varchar(255),
+        year int(11),
+        isbn varchar(13),
+        regdate timestamp default current_timestamp,
+        cnt int default 0,
+        primary key(id)
+);
+
+CRUD 쿼리문
+데이터 추가   insert into BOARD (title,writer,content) values ('제목','홍길동','내용');
+데이터 수정   update BOARD set title='제목2', content='내용' where seq=10
+데이터 삭제   delete from BOARD  where seq=10
+데이터 목록
+select * from BOARD  order by regdate desc
+select * from BOARD  where seq=10
+select title, content from BOARD  where seq=10
