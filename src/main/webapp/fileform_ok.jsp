@@ -30,26 +30,24 @@
     multipartRequest = new MultipartRequest(request, realPath, sizeLimit, "utf-8", new DefaultFileRenamePolicy());
     filename = multipartRequest.getFilesystemName("img1");
 
-    int seq = 0; // Default value, replace this with the appropriate default value for your application
+    int seq = 0;
 
-    // Check if the seq parameter is present and can be parsed as an integer
     String seqParameter = request.getParameter("id");
     if (seqParameter != null && !seqParameter.isEmpty()) {
         try {
             seq = Integer.parseInt(seqParameter);
+            BoardDAO boardDAO = new BoardDAO();
+            boardDAO.insertImage(seq, filename);
+            response.sendRedirect("posts.jsp");
         } catch (NumberFormatException e) {
-            // Handle the case where seq cannot be parsed as an integer
-            e.printStackTrace(); // Log the exception or handle it appropriately
+            e.printStackTrace();
         }
+
     } else {
-        // Handle the case where seq parameter is missing or empty
+        response.sendRedirect("posts.jsp");
     }
 
-    // Update the existing entry with the image
-    BoardDAO boardDAO = new BoardDAO();
-    boardDAO.insertImage(seq, filename);
 
-    response.sendRedirect("posts.jsp");
 %>
 
 

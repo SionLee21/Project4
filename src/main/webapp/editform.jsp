@@ -24,6 +24,8 @@
 		<tr><td>Publisher:</td><td><input type="text" name="publisher" value="<%= u.getPublisher()%>" /></td></tr>
 		<tr><td>Year:</td><td><input type="text" name="year" value="<%= u.getYear()%>" /></td></tr>
 		<tr><td>ISBN:</td><td><input type="text" name="ISBN" value="<%= u.getISBN()%>" /></td></tr>
+		<tr><td>Img src:</td><td><input type="text" name="Img" value="<%= u.getImg()%>" /></td></tr>
+
 		<tr><td colspan="2"><input type="submit" value="Edit Post"/>
 			<input type="button" value="Cancel" onclick="history.back()"/></td></tr>
 	</table>
